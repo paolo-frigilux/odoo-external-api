@@ -19,6 +19,6 @@ common = xmlrpc.client.ServerProxy('{}/xmlrpc/2/common'.format(url))
 models = xmlrpc.client.ServerProxy('{}/xmlrpc/2/object'.format(url))
 
 uid = common.authenticate(db, username, password, {})
-fpointer.write(json.dumps(models.execute_kw(db, uid, password, 'product.product', 'search_read', [[['is_published', '=', True]]], {'fields': [], 'context' :{'lang': "es_ES"}, "limit": 3})))
+fpointer.write(json.dumps(models.execute_kw(db, uid, password, 'product.product', 'search_read', [[['is_published', '=', True], ['id', '=', 1640]]], {'fields': [], 'context' :{'lang': "es_ES"}})))
 
 print(f'Logged as {username} with UID: {uid}')
